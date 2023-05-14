@@ -1,13 +1,13 @@
 /*
 This allocator maintains a linked list of allocated memory blocks. 
-When my_malloc is called, it first checks if there is a block in 
+When malloc is called, it first checks if there is a block in 
 the list that is large enough to satisfy the request. If so, it 
 simply updates the size of that block and returns a pointer to 
 the start of the memory block. If not, it uses mmap to request 
 a new block of memory from the operating system and adds it to 
 the linked list.
 
-When my_free is called, it first calculates the start address of 
+When free is called, it first calculates the start address of 
 the memory block by subtracting the size of the block_header_t 
 structure from the pointer passed to it. It then uses munmap to
 release the memory back to the operating system. Finally, it 
